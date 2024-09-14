@@ -1,0 +1,11 @@
+﻿  Lab3.c
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(50,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(51,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(52,17): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(53,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(54,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(75,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(76,15): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(77,15): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Main\ОПиА\Lab3\Lab3\Lab3.c(95,2): warning C4098: main: функция типа "void", возвращающая значение
+  Lab3.vcxproj -> C:\Main\ОПиА\Lab3\x64\Debug\Lab3.exe
