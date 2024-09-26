@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <locale.h>
 
+
+double name(double U, double R)
+{
+	double I;
+	I = U / R;
+	return I;
+
+}
+
 void main()
 {
 	setlocale(LC_CTYPE, "RUS");
@@ -14,7 +23,7 @@ void main()
 	printf("Введите сопротивление в электрической цепи (Ом): ");
 	scanf("%lf", &R);
 
-	I = U / R;
+	I = name(U, R);
 
 	printf("Сила тока ровна: %lf A", I);
 }
