@@ -11,7 +11,7 @@ void main()
 {
 	setlocale(LC_CTYPE, "RUS");
 
-	//Задание 1
+	//Задание 1 и тест PUSH
 	double gr, rad, res;
 
 
