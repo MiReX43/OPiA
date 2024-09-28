@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <locale.h>
 #define M_PI 3.14159265358979323846
-#define ln 2,718
+#define p 3
 
 
 
@@ -12,15 +12,10 @@ void main()
 {
 	setlocale(LC_CTYPE, "RUS");
 
-	//
-
-
-
 	//Задание 2
 
-	double y, a, b, x, p;
+	double y, a, b, x;
 
-	p = 3;
 
 	printf("\nВведите значение x: ");
 	scanf("%lf", &x);
@@ -29,7 +24,16 @@ void main()
 	b = p*pow(x,2) + sqrt(a);
 	y = pow(log(pow(b, 2)), 3) + a * x;
 
-	printf("y при x=%f равен: %.1f\n", x,y);
+	printf("y при x=%.1f равен: %.1f\n", x,y);
+
+	//Задание 3
+
+	int chet = ((int)a % 2 == 0) ^ ((int)b % 2 == 0);
+	int krat = ((int)a % 3 == 0) && ((int)b & 3 == 0) && ((int)y % 3 == 0);
+
+	printf("\nУсловие(только одно из чисел А и В четно) выполнено(1 - да, 0 - нет): %d\n",krat);
+	printf("Условие(каждое из чисел А,В,С кратно трем) выполнено(1 - да, 0 - нет): %d\n",chet);
+
 
 	//Задание 1
 
