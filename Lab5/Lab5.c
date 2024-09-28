@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <locale.h>
 #define M_PI 3.14159265358979323846
+#define ln 2,718
 
 
 
@@ -11,9 +12,28 @@ void main()
 {
 	setlocale(LC_CTYPE, "RUS");
 
-	//Задание 1 и тест PUSH
-	double gr, rad, res;
+	//
 
+
+
+	//Задание 2
+
+	double y, a, b, x, p;
+
+	p = 3;
+
+	printf("\nВведите значение x: ");
+	scanf("%lf", &x);
+	
+	a = sqrt(p*x);
+	b = p*pow(x,2) + sqrt(a);
+	y = pow(log(pow(b, 2)), 3) + a * x;
+
+	printf("y при x=%f равен: %.1f\n", x,y);
+
+	//Задание 1
+
+	double gr, rad, res;
 
 	printf("Введите градус угал: ");
 	scanf("%lf",&gr);
@@ -21,7 +41,7 @@ void main()
 	res = sin(rad);
 	printf("Раезультат: %.6lf",res );
 
-	//Задание 2;
+	//Задание 0;
 	
 	//double y, a, b, x, t;
 	 

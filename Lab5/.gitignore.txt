@@ -1,4 +1,3 @@
 .vs/
-.vs
 *.VC.opendb
 *.VC.db
