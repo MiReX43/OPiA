@@ -10,7 +10,7 @@ void main()
 {
 	setlocale(LC_CTYPE, "RUS");
 
-	//Задание 3
+	//Задание 3///////////
 	int m;
 
 	printf("Введите номер месяца: ");
