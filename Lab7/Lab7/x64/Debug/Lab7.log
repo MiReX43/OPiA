@@ -1,0 +1,4 @@
+﻿  Lab7.c
+C:\Users\dengi\source\repos\Lab7\Lab7\Lab7.c(46,2): warning C4098: main: функция типа "void", возвращающая значение
+C:\Users\dengi\source\repos\Lab7\Lab7\Lab7.c(98,2): warning C4098: main: функция типа "void", возвращающая значение
+  Lab7.vcxproj -> C:\Users\dengi\source\repos\Lab7\x64\Debug\Lab7.exe
