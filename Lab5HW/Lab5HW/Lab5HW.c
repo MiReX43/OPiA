@@ -9,11 +9,16 @@ void main()
 	setlocale(LC_CTYPE, "RUS");
 
 	double x, y, z, a;
-	x = -15.246;
-	y = 4.642 * pow(10,-2);
-	z = 20.001 * pow(10, 2);
 
+	//Ввод данных
+	printf("Введите значение 'x': ");
+	scanf("%lf", &x);
+	printf("Введите значение 'y': ");
+	scanf("%lf", &y);
+	printf("Введите значение 'z': ");
+	scanf("%lf", &z);
 
+	//Вычисления
 	a = log(pow(y, -sqrt(fabs(x)))) * (x - y / 2) + pow(sin(atan(z)), 2);
 
 	//Разложение на просты выражеия
@@ -25,8 +30,9 @@ void main()
 	double res6 = pow(sin(res5), 2);
 	double result = res3 * res4 + res6;
 
-	printf("a =: %.3f\n", result);
-	printf("a =: %.3f\n", a);
+	//Вывод результата
+	printf("a =: %.3lf\n", result);
+	printf("a =: %.3lf\n", a);
 
 	system("pause");
 }
