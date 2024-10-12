@@ -4,11 +4,44 @@
 #include <stdio.h>
 #include <locale.h>
 
+double res(double x)
+{
+	return pow(x, 2) - pow(cos(x + 1), 2);
+}
 
 
-void main()
+int main()
 {
 	setlocale(LC_CTYPE, "RUS");
+
+
+	//Задание 2
+
+	double step, start, end, fx;
+
+	printf("Функция: f(x) = x^2 - cos^2(x + 1)\n");
+
+	printf("Введите начала интервала: ");
+	scanf(" %lf", &start);
+
+	printf("Введите введите конец интервала: ");
+	scanf(" %lf", &end);
+
+	printf("Введите шаг табуляции: ");
+	scanf(" %lf", &step);
+
+	printf("______________________\n");
+	printf("|   x   |     f(x)   |\n");
+	printf("______________________\n");
+
+	for (double x = start; x <= end; x += step)
+	{
+		fx = res(x);
+
+		printf("| %5.2lf | %10.6lf |\n", x, fx);
+	}
+
+	printf("______________________\n");
 
 	//Задание 1А
 
@@ -70,7 +103,6 @@ void main()
 			putchar(c2);
 		}
 		putchar('!');
-
 	}
 	putchar('+');
 
