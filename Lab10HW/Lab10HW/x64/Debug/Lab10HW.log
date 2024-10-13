@@ -1,0 +1,6 @@
+﻿  Lab10HW.c
+C:\Users\dengi\source\repos\Lab10HW\Lab10HW\Lab10HW.c(10,14): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\dengi\source\repos\Lab10HW\Lab10HW\Lab10HW.c(23,9): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\dengi\source\repos\Lab10HW\Lab10HW\Lab10HW.c(33,30): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\dengi\source\repos\Lab10HW\Lab10HW\Lab10HW.c(193,9): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+  Lab10HW.vcxproj -> C:\Users\dengi\source\repos\Lab10HW\x64\Debug\Lab10HW.exe
