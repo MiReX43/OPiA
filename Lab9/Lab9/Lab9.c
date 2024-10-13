@@ -10,6 +10,44 @@ int main()
 {
 	setlocale(LC_CTYPE, "RUS");
 
+	//Задание 2
+
+	while (1) {
+
+		long long num;
+		int sum = 0;
+		char a;
+
+		printf("Введите число: ");
+		scanf("%lld", &num);
+
+		while (num != 0)
+		{
+			int dig = num % 10;
+			if (dig % 2 != 0)
+			{
+				sum += dig;
+			}
+			num /= 10;
+		}
+
+		printf("Сумма нечетных цифр: %d\n", sum);
+
+		printf("Продолжить? (Да - y, Нет - n): ");
+
+		getchar();
+
+		a = getchar();
+
+		if (a == 'n')
+		{
+			break;
+		}
+	}
+
+	system("pause");
+	//Задание 1
+
 	int row, col;
 
 	printf("\n");
