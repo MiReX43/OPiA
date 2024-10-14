@@ -1,3 +1,4 @@
 ﻿  Lab4HW.c
+C:\Users\dengi\source\repos\Lab4HW\Lab4HW\Lab4HW.c(42,11): warning C4244: =: преобразование "double" в "int", возможна потеря данных
 C:\Users\dengi\source\repos\Lab4HW\Lab4HW\Lab4HW.c(47,5): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
   Lab4HW.vcxproj -> C:\Users\dengi\source\repos\Lab4HW\x64\Debug\Lab4HW.exe

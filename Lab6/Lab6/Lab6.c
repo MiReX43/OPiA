@@ -19,17 +19,18 @@ void main()
 
 
     // Вычисление квадрата и квадратного корня
-    square = X * X;
+	square = X * X;
     squareR = sqrt(X);
 
-    // Сравнение значений и вывод в порядке убывания
-	//max = (square >= X && square >= squareR) ? square : (X >= squareR ? X : squareR);
-	//min = (square <= X && square <= squareR) ? square : (X <= squareR ? X : squareR);
-	//mid = (square != max && square != min) ? square : (X != max && X != min ? X : squareR);
+    //Сравнение значений и вывод в порядке убывания
+	max = (square >= X && square >= squareR) ? square : (X >= squareR ? X : squareR);
+	min = (square <= X && square <= squareR) ? square : (X <= squareR ? X : squareR);
+	mid = (square != max && square != min) ? square : (X != max && X != min ? X : squareR);
 
-	printf("%.2f\n", square);
-	printf("%.2f\n", X);
-	printf("%.2f\n", squareR);
+	//Вывод в порядкне убывания
+	printf("%.2f\n", max);
+	printf("%.2f\n", mid);
+	printf("%.2f\n", min);
 
 	//Задание 2
 
