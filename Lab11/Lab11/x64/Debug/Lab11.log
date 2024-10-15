@@ -1,0 +1,4 @@
+﻿  Lab11.c
+C:\Users\dengi\source\repos\Lab11\Lab11\Lab11.c(18,15): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\dengi\source\repos\Lab11\Lab11\Lab11.c(75,2): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+  Lab11.vcxproj -> C:\Users\dengi\source\repos\Lab11\x64\Debug\Lab11.exe
