@@ -1,0 +1,13 @@
+﻿  Lab12.c
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(53,2): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(107,9): warning C4477: "printf": в строке форматирования "%g" требуется аргумент типа "double", но вариативный аргумент "2" имеет тип "int"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(109,9): warning C4477: "printf": в строке форматирования "%g" требуется аргумент типа "double", но вариативный аргумент "2" имеет тип "int"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(111,9): warning C4477: "printf": в строке форматирования "%g" требуется аргумент типа "double", но вариативный аргумент "2" имеет тип "int"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(181,9): warning C4477: "printf": в строке форматирования "%lu" требуется аргумент типа "unsigned long", но вариативный аргумент "1" имеет тип "size_t"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(181,9): message : рекомендуется использовать "%zu" в строке форматирования
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(182,9): warning C4477: "printf": в строке форматирования "%lu" требуется аргумент типа "unsigned long", но вариативный аргумент "1" имеет тип "size_t"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(182,9): message : рекомендуется использовать "%zu" в строке форматирования
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(57,20): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(80,9): warning C4047: инициализация: "float *" отличается по уровням косвенного обращения от "float (*)[10]"
+C:\Users\dengi\source\repos\Lab12\Lab12\Lab12.c(166,8): warning C4305: инициализация: усечение из "double" в "float"
+  Lab12.vcxproj -> C:\Users\dengi\source\repos\Lab12\x64\Debug\Lab12.exe
