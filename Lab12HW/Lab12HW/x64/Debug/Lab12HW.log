@@ -1,0 +1,14 @@
+﻿  Lab12HW.c
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(11,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(18,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(25,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(32,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(39,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(46,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(53,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(60,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(67,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(74,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(81,28): warning C4244: return: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab12HW\Lab12HW\Lab12HW.c(100,2): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+  Lab12HW.vcxproj -> C:\Users\dengi\source\repos\Lab12HW\x64\Debug\Lab12HW.exe
