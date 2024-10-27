@@ -1,0 +1,4 @@
+﻿  Lab14.c
+C:\Users\dengi\source\repos\Lab14\Lab14\Lab14.c(97,2): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\dengi\source\repos\Lab14\Lab14\Lab14.c(25): warning C4716: put_elements: должна возвращать значение
+  Lab14.vcxproj -> C:\Users\dengi\source\repos\Lab14\x64\Debug\Lab14.exe
