@@ -1,0 +1,4 @@
+﻿  Lab18.c
+C:\Users\dengi\source\repos\Lab18\Lab18\Lab18.c(28,12): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\dengi\source\repos\Lab18\Lab18\Lab18.c(57,26): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Lab18.vcxproj -> C:\Users\dengi\source\repos\Lab18\x64\Debug\Lab18.exe
