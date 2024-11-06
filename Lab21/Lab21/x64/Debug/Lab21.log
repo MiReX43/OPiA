@@ -1,0 +1,4 @@
+﻿  Lab21.c
+C:\Users\dengi\source\repos\Lab21\Lab21\Lab21.c(109,11): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab21\Lab21\Lab21.c(192,34): warning C4020: calc_k: слишком много фактических параметров
+  Lab21.vcxproj -> C:\Users\dengi\source\repos\Lab21\x64\Debug\Lab21.exe
