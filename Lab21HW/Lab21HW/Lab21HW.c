@@ -23,6 +23,8 @@ void shift_right(int* array, int size, int n) {
     for (int i = 0; i < n; i++) {
         array[i] = 0;
     }
+
+    return array;
 }
 
 void print_array(int* array, int size) {
