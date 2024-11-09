@@ -1,0 +1,6 @@
+﻿  Lab13.c
+C:\Users\dengi\source\repos\Lab13\Lab13\Lab13.c(17,15): warning C4098: to_uppercase: функция типа "void", возвращающая значение
+C:\Users\dengi\source\repos\Lab13\Lab13\Lab13.c(22,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dengi\source\repos\Lab13\Lab13\Lab13.c(31,15): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dengi\source\repos\Lab13\Lab13\Lab13.c(41,11): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
+  Lab13.vcxproj -> C:\Users\dengi\source\repos\Lab13\x64\Debug\Lab13.exe
