@@ -106,6 +106,7 @@ void search_by_director(movie_t* movies, int size, char* director)
     if (!found) {
         printf("Фильмы с режиссером %s не найдены.\n", director);
     }
+    return found;
 }
 
 // Функция для сортировки фильмов по стоимости
@@ -191,7 +192,7 @@ int load_from_file(char* filename, movie_t* movies, int* size)
     return 1;
 }
 
-void modify_record(movie_t* movies) 
+void modify_record(movie_t* movies)
 {
     printf("Введите новые данные для фильма:\n");
     printf("Введите название фильма: ");
@@ -341,7 +342,6 @@ int main()
 
     return 0;
 }
-
 
 //Разработка файловой базы данных "Видеотека"
 //Поля: название фильма, жанр, стоимость, режиссер, год выпуска.

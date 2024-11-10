@@ -1,3 +1,4 @@
 ﻿  Coursework.c
 C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(40,11): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(109,17): warning C4098: search_by_director: функция типа "void", возвращающая значение
   Coursework.vcxproj -> C:\Users\dengi\source\repos\Coursework\x64\Debug\Coursework.exe
