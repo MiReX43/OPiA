@@ -1,0 +1,3 @@
+﻿  Coursework.c
+C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(36,11): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
+  Coursework.vcxproj -> C:\Users\dengi\source\repos\Coursework\x64\Debug\Coursework.exe
