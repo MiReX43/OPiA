@@ -230,6 +230,11 @@ int main()
 
     fill_array(movies, SIZE);
 
+    print_line(39);
+    printf("* ”правлеине базой данных '¬идеотека' *\n");
+    print_line(39);
+
+
     while (1) 
     {
         menu();
