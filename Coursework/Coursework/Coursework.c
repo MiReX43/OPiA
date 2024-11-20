@@ -83,20 +83,33 @@ void print_all_movies(movie_t* movies, int size) {
     print_line(TABLE_WIDTH);
 }
 
+
+
+
+
 // Функция для поиска фильма по режиссеру
-void search_by_director(movie_t* movies, int size, const char* director) {
-    int found = 0;
+movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count) {
+    movie_t* found_movies = malloc(size * sizeof(movie_t)); // Выделяем память для возможных фильмов
+    *found_count = 0; // Счётчик найденных фильмов
+
     for (int i = 0; i < size; i++) {
         if (strcmp(movies[i].director, director) == 0) {
-            print_movie(movies[i], i);
-            found = 1;
+            found_movies[*found_count] = movies[i]; // Добавляем найденный фильм
+            (*found_count)++;
         }
     }
-    if (!found) {
-        printf("Фильмы с режиссером %s не найдены.\n", director);
+
+    if (*found_count == 0) {
+        free(found_movies); // Если фильмов не найдено, освобождаем память
+        return NULL;
     }
-    return found;
+
+    return found_movies;
 }
+
+
+
+
 
 // Функция для сортировки фильмов по стоимости
 int compare_cost(const void* a, const void* b) {
@@ -223,6 +236,10 @@ int main()
     int choice;
     int main_choice, sub_choice;
     int ch;
+
+    print_line(39);
+    printf("* Управления базой данных 'Видеотека' *\n");
+    print_line(39);
 
     while (1) {
         printf("\n========== ГЛАВНОЕ МЕНЮ ==========\n");
@@ -419,9 +436,23 @@ int main()
             char director[50];
             printf("Введите имя режиссера для поиска: ");
             scanf("%s", director);
-            print_tab();
-            search_by_director(movies, size, director);
+
+            print_tab(); // Печатаем таблицу с заголовками
+            int found_count = 0;
+            movie_t* found_movies = search_by_director(movies, size, director, &found_count);
+
+            if (found_count == 0) {
+                printf("Фильмы с режиссером %s не найдены.\n", director);
+            }
+            else {
+                for (int i = 0; i < found_count; i++) {
+                    print_movie(found_movies[i],i);
+                }
+            }
+
             print_line(TABLE_WIDTH);
+
+            free(found_movies); // Освобождаем память, если был выделен динамический массив
             break;
 
         case 6:
