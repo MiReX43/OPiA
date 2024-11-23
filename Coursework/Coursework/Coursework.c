@@ -18,213 +18,21 @@ struct Movie {
 
 typedef struct Movie movie_t;
 
-int getRandomNumber(int min, int max) {
-    return rand() % (max - min + 1) + min;
-}
-
-void random_string(char* str, const char* arr[], int arr_size) {
-    int index = rand() % arr_size;
-    strcpy(str, arr[index]);
-    return 1;
-}
-
-// Заполнение массива
-void fill_array(movie_t* movies, int size) {
-    const char* titles[] = { "Inception", "Titanic", "The_Matrix", "Avatar", "Gladiator" };
-    const char* genres[] = { "Action", "Drama", "Sci-Fi", "Romance", "Adventure" };
-    const char* directors[] = { "Spielberg", "Cameron", "Nolan", "Tarantino", "Scorsese" };
-
-    for (int i = 0; i < size; i++) {
-        random_string(movies[i].title, titles, sizeof(titles) / sizeof(titles[0]));
-        random_string(movies[i].genre, genres, sizeof(genres) / sizeof(genres[0]));
-        movies[i].cost = getRandomNumber(100, 20000);
-        random_string(movies[i].director, directors, sizeof(directors) / sizeof(directors[0]));
-        movies[i].year = getRandomNumber(1950, 2024);
-    }
-    return 1;
-}
-
-
-void print_line(int width) {
-    for (int i = 0; i < width; i++) {
-        printf("*");
-    }
-    printf("\n");
-}
-
-void print_tab() {
-    char index[50] = "Индекс";
-    char title[50] = "Название";
-    char genre[50] = "Жанр";
-    char cost[50] = "Стоимость";
-    char director[50] = "Режиссер";
-    char year[50] = "Год выпуска";
-
-    printf("\n");
-    print_line(TABLE_WIDTH);
-
-    printf("* %-6s * %-13s * %-13s * %-15s * %-13s * %-13s *\n", index, title, genre, cost, director, year);
-
-    print_line(TABLE_WIDTH);
-}
-
-// Функция для вывода одной записи
-void print_movie(movie_t movie, int index) {
-    printf("* %-6d * %-13s * %-13s * %-14.2f$ * %-13s * %-13d *\n",
-        index, movie.title, movie.genre, movie.cost, movie.director, movie.year);
-}
-
-// Функция для вывода всех записей
-void print_all_movies(movie_t* movies, int size) {
-    print_tab();
-    for (int i = 0; i < size; i++) {
-        print_movie(movies[i], i);
-    }
-    print_line(TABLE_WIDTH);
-}
-
-
-
-
-
-// Функция для поиска фильма по режиссеру
-movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count) {
-    movie_t* found_movies = malloc(size * sizeof(movie_t)); // Выделяем память для возможных фильмов
-    *found_count = 0; // Счётчик найденных фильмов
-
-    for (int i = 0; i < size; i++) {
-        if (strcmp(movies[i].director, director) == 0) {
-            found_movies[*found_count] = movies[i]; // Добавляем найденный фильм
-            (*found_count)++;
-        }
-    }
-
-    if (*found_count == 0) {
-        free(found_movies); // Если фильмов не найдено, освобождаем память
-        return NULL;
-    }
-
-    return found_movies;
-}
-
-
-
-
-
-// Функция для сортировки фильмов по стоимости
-int compare_cost(const void* a, const void* b) {
-    return ((movie_t*)a)->cost > ((movie_t*)b)->cost ? 1 : -1;
-}
-
-// Функция для сортировки по году выпуска с учетом жанра
-int compare_year_and_genre(const void* a, const void* b) {
-    movie_t* movieA = (movie_t*)a;
-    movie_t* movieB = (movie_t*)b;
-    int genre_cmp = strcmp(movieA->genre, movieB->genre);
-
-    if (genre_cmp == 0) {
-        return movieA->year - movieB->year;
-    }
-    return genre_cmp;
-}
-
-// Функция для записи базы данных в файл
-int save_to_file(movie_t* movies, int size)
-{
-    char filename[50];
-    printf("Введите имя файла для сохранения данных: ");
-    scanf("%s", filename);
-
-    FILE* file = fopen(filename, "w");
-    if (!file) {
-        printf("Ошибка при открытии файла для записи.\n");
-        return 0;
-    }
-    for (int i = 0; i < size; i++) {
-        fprintf(file, "%s %s %.2f %s %d\n", movies[i].title, movies[i].genre, movies[i].cost, movies[i].director, movies[i].year);
-    }
-
-    fclose(file);
-    return 1;
-}
-
-
-// Функция для добавления записи фильма
-void add_movie(movie_t* movies, int* size)
-{
-    if (*size >= SIZE) {
-        printf("Достигнут лимит записей.\n");
-        return;
-    }
-    printf("Введите название фильма: ");
-    scanf("%s", movies[*size].title);
-    printf("Введите жанр: ");
-    scanf("%s", movies[*size].genre);
-    printf("Введите стоимость: ");
-    scanf("%lf", &movies[*size].cost);
-    printf("Введите режиссера: ");
-    scanf("%s", movies[*size].director);
-    printf("Введите год выпуска: ");
-    scanf("%d", &movies[*size].year);
-    (*size)++;
-}
-
-// Функция для чтения базы данных из файла
-int load_from_file(char* filename, movie_t* movies, int* size)
-{
-    FILE* file = fopen(filename, "r");
-    if (!file) {
-        printf("Ошибка при открытии файла для чтения.\n");
-        return 0;
-    }
-
-    int i = 0;
-    while (fscanf(file, "%s %s %lf %s %d", movies[i].title, movies[i].genre, &movies[i].cost, movies[i].director, &movies[i].year) != EOF) {
-        i++;
-    }
-    *size = i;
-
-    fclose(file);
-    return 1;
-}
-
-void modify_record(movie_t* movies) {
-    printf("Введите новые данные для фильма:\n");
-    printf("Введите название фильма: ");
-    scanf("%s", movies->title);
-    printf("Введите жанр: ");
-    scanf("%s", movies->genre);
-    printf("Введите стоимость: ");
-    scanf("%lf", &movies->cost);
-    printf("Введите режиссера: ");
-    scanf("%s", movies->director);
-    printf("Введите год выпуска: ");
-    scanf("%d", &movies->year);
-}
-
-void delete_record(movie_t* movies, int* size, int index) {
-    if (index < 0 || index >= *size) {
-        printf("Некорректный индекс записи.\n");
-        return;
-    }
-    for (int i = index; i < *size - 1; i++) {
-        movies[i] = movies[i + 1];
-    }
-    (*size)--;
-    printf("Запись успешно удалена.\n");
-}
-
-void create_new_file(const char* filename) {
-    FILE* file = fopen(filename, "w");
-    if (!file) {
-        printf("Ошибка при создании файла.\n");
-        return;
-    }
-
-    fprintf(file, "");
-    fclose(file);
-    printf("Файл '%s' успешно создан.\n", filename);
-}
+int getRandomNumber(int min, int max); //Генерация чисел для заполнения массива
+void random_string(char* str, const char* arr[], int arr_size); //Генерация строковых значений для заполнения массива
+void fill_array(movie_t* movies, int size);//Автоматическое заполнения массива
+void print_line(int width);//Печать часть основаиния таблицы
+void print_movie(movie_t movie, int index);//Вывод одной записи из файла
+void print_all_movies(movie_t* movies, int size);//Вывод всех запсей из файла
+movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count);
+int compare_cost(const void* a, const void* b);
+int compare_year_and_genre(const void* a, const void* b);
+int save_to_file(movie_t* movies, int size);
+void add_movie(movie_t* movies, int* size);
+int load_from_file(char* filename, movie_t* movies, int* size);
+void modify_record(movie_t* movies);
+void delete_record(movie_t* movies, int* size, int index);
+void create_new_file(const char* filename);
 
 int main()
 {
@@ -237,9 +45,15 @@ int main()
     int main_choice, sub_choice;
     int ch;
 
-    print_line(39);
+    for (int i = 0; i < 39; i++) {
+        printf("*");
+    }
+    printf("\n");
     printf("* Управления базой данных 'Видеотека' *\n");
-    print_line(39);
+    for (int i = 0; i < 39; i++) {
+        printf("*");
+    }
+    printf("\n");
 
     while (1) {
         printf("\n========== ГЛАВНОЕ МЕНЮ ==========\n");
@@ -403,7 +217,6 @@ int main()
 
         case 4:
             while (1) {
-                // Подменю сортировки
                 printf("\n====== СОРТИРОВКА ЗАПИСЕЙ ======\n");
                 printf("1. По стоимости\n");
                 printf("2. По году выпуска с учетом жанра\n");
@@ -422,7 +235,7 @@ int main()
                 }
                 else if (sub_choice == 3) {
                     printf("Возврат в главное меню...\n");
-                    break; // Возврат в главное меню
+                    break;
                 }
                 else {
                     printf("Неверный выбор.\n");
@@ -437,7 +250,20 @@ int main()
             printf("Введите имя режиссера для поиска: ");
             scanf("%s", director);
 
-            print_tab(); // Печатаем таблицу с заголовками
+            char index[50] = "Индекс";
+            char title[50] = "Название";
+            char genre[50] = "Жанр";
+            char cost[50] = "Стоимость";
+            char directors[50] = "Режиссер";
+            char year[50] = "Год выпуска";
+
+            printf("\n");
+            print_line(TABLE_WIDTH);
+
+            printf("* %-6s * %-13s * %-13s * %-15s * %-13s * %-13s *\n", index, title, genre, cost, directors, year);
+
+            print_line(TABLE_WIDTH);
+
             int found_count = 0;
             movie_t* found_movies = search_by_director(movies, size, director, &found_count);
 
@@ -452,9 +278,8 @@ int main()
 
             print_line(TABLE_WIDTH);
 
-            free(found_movies); // Освобождаем память, если был выделен динамический массив
+            free(found_movies);
             break;
-
         case 6:
             printf("Выход из программы. До свидания!\n");
             return 0;
@@ -465,6 +290,208 @@ int main()
     }
     return 0;
 }
+
+
+int getRandomNumber(int min, int max) {
+    return rand() % (max - min + 1) + min;
+}
+
+void random_string(char* str, const char* arr[], int arr_size) {
+    int index = rand() % arr_size;
+    strcpy(str, arr[index]);
+    return 1;
+}
+
+// Заполнение массива
+void fill_array(movie_t* movies, int size) {
+    const char* titles[] = { "Inception", "Titanic", "The_Matrix", "Avatar", "Gladiator" };
+    const char* genres[] = { "Action", "Drama", "Sci-Fi", "Romance", "Adventure" };
+    const char* directors[] = { "Spielberg", "Cameron", "Nolan", "Tarantino", "Scorsese" };
+
+    for (int i = 0; i < size; i++) {
+        random_string(movies[i].title, titles, sizeof(titles) / sizeof(titles[0]));
+        random_string(movies[i].genre, genres, sizeof(genres) / sizeof(genres[0]));
+        movies[i].cost = getRandomNumber(100, 20000);
+        random_string(movies[i].director, directors, sizeof(directors) / sizeof(directors[0]));
+        movies[i].year = getRandomNumber(1950, 2024);
+    }
+    return 1;
+}
+
+void print_line(int width) {
+    for (int i = 0; i < width; i++) {
+        printf("*");
+    }
+    printf("\n");
+}
+
+// Функция для вывода одной записи
+void print_movie(movie_t movie, int index) {
+    printf("* %-6d * %-13s * %-13s * %-14.2f$ * %-13s * %-13d *\n",
+        index, movie.title, movie.genre, movie.cost, movie.director, movie.year);
+}
+
+// Функция для вывода всех записей
+void print_all_movies(movie_t* movies, int size) {
+
+    char index[50] = "Индекс";
+    char title[50] = "Название";
+    char genre[50] = "Жанр";
+    char cost[50] = "Стоимость";
+    char director[50] = "Режиссер";
+    char year[50] = "Год выпуска";
+
+    printf("\n");
+    print_line(TABLE_WIDTH);
+
+    printf("* %-6s * %-13s * %-13s * %-15s * %-13s * %-13s *\n", index, title, genre, cost, director, year);
+
+    print_line(TABLE_WIDTH);
+
+    for (int i = 0; i < size; i++) {
+        print_movie(movies[i], i);
+    }
+    print_line(TABLE_WIDTH);
+}
+
+// Функция для поиска фильма по режиссеру
+movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count) {
+    movie_t* found_movies = malloc(size * sizeof(movie_t));
+    *found_count = 0;
+    for (int i = 0; i < size; i++) {
+        if (strcmp(movies[i].director, director) == 0) {
+            found_movies[*found_count] = movies[i];
+            (*found_count)++;
+        }
+    }
+    if (*found_count == 0) {
+        free(found_movies);
+        return NULL;
+    }
+    return found_movies;
+}
+
+// Функция для сортировки фильмов по стоимости
+int compare_cost(const void* a, const void* b) {
+    return ((movie_t*)a)->cost > ((movie_t*)b)->cost ? 1 : -1;
+}
+
+// Функция для сортировки по году выпуска с учетом жанра
+int compare_year_and_genre(const void* a, const void* b) {
+    movie_t* movieA = (movie_t*)a;
+    movie_t* movieB = (movie_t*)b;
+    int genre_cmp = strcmp(movieA->genre, movieB->genre);
+
+    if (genre_cmp == 0) {
+        return movieA->year - movieB->year;
+    }
+    return genre_cmp;
+}
+
+// Функция для записи базы данных в файл
+int save_to_file(movie_t* movies, int size)
+{
+    char filename[50];
+    printf("Введите имя файла для сохранения данных: ");
+    scanf("%s", filename);
+
+    FILE* file = fopen(filename, "w");
+    if (!file) {
+        printf("Ошибка при открытии файла для записи.\n");
+        return 0;
+    }
+    for (int i = 0; i < size; i++) {
+        fprintf(file, "%s %s %.2f %s %d\n", movies[i].title, movies[i].genre, movies[i].cost, movies[i].director, movies[i].year);
+    }
+
+    fclose(file);
+    return 1;
+}
+
+
+// Функция для добавления записи фильма
+void add_movie(movie_t* movies, int* size)
+{
+    if (*size >= SIZE) {
+        printf("Достигнут лимит записей.\n");
+        return;
+    }
+    printf("Введите название фильма: ");
+    scanf("%s", movies[*size].title);
+    printf("Введите жанр: ");
+    scanf("%s", movies[*size].genre);
+    printf("Введите стоимость: ");
+    scanf("%lf", &movies[*size].cost);
+    printf("Введите режиссера: ");
+    scanf("%s", movies[*size].director);
+    printf("Введите год выпуска: ");
+    scanf("%d", &movies[*size].year);
+    (*size)++;
+}
+
+// Функция для чтения базы данных из файла
+int load_from_file(char* filename, movie_t* movies, int* size)
+{
+    FILE* file = fopen(filename, "r");
+    if (!file) {
+        printf("Ошибка при открытии файла для чтения.\n");
+        return 0;
+    }
+
+    int i = 0;
+    while (fscanf(file, "%s %s %lf %s %d",
+        (movies + i)->title,
+        (movies + i)->genre,
+        &(movies + i)->cost,
+        (movies + i)->director,
+        &(movies + i)->year) != EOF) {
+        i++;
+    }
+    *size = i;
+
+    fclose(file);
+    return 1;
+}
+
+void modify_record(movie_t* movies) {
+    printf("Введите новые данные для фильма:\n");
+    printf("Введите название фильма: ");
+    scanf("%s", movies->title);
+    printf("Введите жанр: ");
+    scanf("%s", movies->genre);
+    printf("Введите стоимость: ");
+    scanf("%lf", &movies->cost);
+    printf("Введите режиссера: ");
+    scanf("%s", movies->director);
+    printf("Введите год выпуска: ");
+    scanf("%d", &movies->year);
+}
+
+void delete_record(movie_t* movies, int* size, int index) {
+    if (index < 0 || index >= *size) {
+        printf("Некорректный индекс записи.\n");
+        return 0;
+    }
+    for (int i = index; i < *size - 1; i++) {
+        movies[i] = movies[i + 1];
+    }
+    (*size)--;
+    printf("Запись успешно удалена.\n");
+    return 1;
+}
+
+void create_new_file(const char* filename) {
+    FILE* file = fopen(filename, "w");
+    if (!file) {
+        printf("Ошибка при создании файла.\n");
+        return;
+    }
+
+    fprintf(file, "");
+    fclose(file);
+    printf("Файл '%s' успешно создан.\n", filename);
+}
+//Исправить функцию удалния, 
 
 //1. Создать файл
 //2. Редактировать файл -->
@@ -479,7 +506,7 @@ int main()
 //    2. По году выпуска с учетом жанра
 //    3. Назад <--
 //5. Поиск
-
+  
 //Разработка файловой базы данных "Видеотека"
 //Поля: название фильма, жанр, стоимость, режиссер, год выпуска.
 //Признак поиска: фильм по одному режиссеру, фильм по одному жанру.

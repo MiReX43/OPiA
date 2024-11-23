@@ -1,7 +1,9 @@
 ﻿  Coursework.c
-C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(28,13): warning C4098: random_string: функция типа "void", возвращающая значение
-C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(44,13): warning C4098: fill_array: функция типа "void", возвращающая значение
-C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(232,11): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(236,9): warning C4101: choice: неиспользованная локальная переменная
-C:\Users\dengi\source\repos\Coursework\Coursework\Coursework.c(238,9): warning C4101: ch: неиспользованная локальная переменная
-  Coursework.vcxproj -> C:\Users\dengi\source\repos\Coursework\x64\Debug\Coursework.exe
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(40,11): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(44,9): warning C4101: choice: неиспользованная локальная переменная
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(46,9): warning C4101: ch: неиспользованная локальная переменная
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(302,5): warning C4098: random_string: функция типа "void", возвращающая значение
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(318,5): warning C4098: fill_array: функция типа "void", возвращающая значение
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(478,9): warning C4098: delete_record: функция типа "void", возвращающая значение
+C:\Users\hp\source\repos\OPiA\Coursework\Coursework\Coursework.c(485,5): warning C4098: delete_record: функция типа "void", возвращающая значение
+  Coursework.vcxproj -> C:\Users\hp\source\repos\OPiA\Coursework\x64\Debug\Coursework.exe
