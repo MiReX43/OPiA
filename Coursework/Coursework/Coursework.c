@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 
+п»ї#define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +7,7 @@
 #define SIZE 100
 #define TABLE_WIDTH 92
 
-// Структура для описания фильма
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РѕРїРёСЃР°РЅРёСЏ С„РёР»СЊРјР°
 struct Movie {
     char title[50];
     char genre[30];
@@ -18,21 +18,21 @@ struct Movie {
 
 typedef struct Movie movie_t;
 
-int getRandomNumber(int min, int max); //Генерация чисел для заполнения массива
-void random_string(char* str, const char* arr[], int arr_size); //Генерация строковых значений для заполнения массива
-void fill_array(movie_t* movies, int size);//Автоматическое заполнения массива
-void print_line(int width);//Печать часть основаиния таблицы
-void print_movie(movie_t movie, int index);//Вывод одной записи из файла
-void print_all_movies(movie_t* movies, int size);//Вывод всех запсей из файла
-movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count);
-int compare_cost(const void* a, const void* b);
-int compare_year_and_genre(const void* a, const void* b);
-int save_to_file(movie_t* movies, int size);
-void add_movie(movie_t* movies, int* size);
-int load_from_file(char* filename, movie_t* movies, int* size);
-void modify_record(movie_t* movies);
-void delete_record(movie_t* movies, int* size, int index);
-void create_new_file(const char* filename);
+int getRandomNumber(int min, int max);                                                          //Р“РµРЅРµСЂРёСЂСѓРµС‚ СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ min РґРѕ max.
+void random_string(char* str, const char* arr[], int arr_size);                                 //Р’С‹Р±РёСЂР°РµС‚ СЃР»СѓС‡Р°Р№РЅСѓСЋ СЃС‚СЂРѕРєСѓ РёР· РјР°СЃСЃРёРІР° arr Рё РєРѕРїРёСЂСѓРµС‚ РµС‘ РІ str.
+void fill_array(movie_t* movies, int size);                                                     //Р—Р°РїРѕР»РЅСЏРµС‚ РјР°СЃСЃРёРІ СЃС‚СЂСѓРєС‚СѓСЂ movies СЃР»СѓС‡Р°Р№РЅС‹РјРё РґР°РЅРЅС‹РјРё.
+void print_line(int width);                                                                     //РџРµС‡Р°С‚Р°РµС‚ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅСѓСЋ Р»РёРЅРёСЋ РёР· СЃРёРјРІРѕР»РѕРІ * РґР»РёРЅРѕР№ width.
+void print_movie(movie_t movie, int index);                                                     //Р’С‹РІРѕРґРёС‚ РѕРґРЅСѓ Р·Р°РїРёСЃСЊ С„РёР»СЊРјР° РІ С‚Р°Р±Р»РёС‡РЅРѕРј С„РѕСЂРјР°С‚Рµ.
+void print_all_movies(movie_t* movies, int size);                                               //Р’С‹РІРѕРґРёС‚ РІСЃРµ Р·Р°РїРёСЃРё РјР°СЃСЃРёРІР° movies РІ С‚Р°Р±Р»РёС‡РЅРѕРј С„РѕСЂРјР°С‚Рµ.
+movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count); //РС‰РµС‚ РІСЃРµ С„РёР»СЊРјС‹, СЃРЅСЏС‚С‹Рµ СѓРєР°Р·Р°РЅРЅС‹Рј СЂРµР¶РёСЃСЃС‘СЂРѕРј.
+int compare_cost(const void* a, const void* b);                                                 //Р¤СѓРЅРєС†РёСЏ СЃСЂР°РІРЅРµРЅРёСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё С„РёР»СЊРјРѕРІ РїРѕ СЃС‚РѕРёРјРѕСЃС‚Рё.
+int compare_year_and_genre(const void* a, const void* b);                                       //РЎСЂР°РІРЅРёРІР°РµС‚ С„РёР»СЊРјС‹ РїРѕ Р¶Р°РЅСЂСѓ Рё РіРѕРґСѓ РІС‹РїСѓСЃРєР°.
+int save_to_file(movie_t* movies, int size);                                                    //РЎРѕС…СЂР°РЅСЏРµС‚ РјР°СЃСЃРёРІ С„РёР»СЊРјРѕРІ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р».
+void add_movie(movie_t* movies, int* size);                                                     //Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІСѓСЋ Р·Р°РїРёСЃСЊ РІ РјР°СЃСЃРёРІ movies.
+int load_from_file(char* filename, movie_t* movies, int* size);                                 //РЎС‡РёС‚С‹РІР°РµС‚ РґР°РЅРЅС‹Рµ РёР· С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° Рё Р·Р°РїРѕР»РЅСЏРµС‚ РјР°СЃСЃРёРІ movies.
+void modify_record(movie_t* movies);                                                            //РР·РјРµРЅСЏРµС‚ РґР°РЅРЅС‹Рµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµР№ Р·Р°РїРёСЃРё.
+void delete_record(movie_t* movies, int* size, int index);                                      //РЈРґР°Р»СЏРµС‚ Р·Р°РїРёСЃСЊ РёР· РјР°СЃСЃРёРІР° movies РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРЅРґРµРєСЃСѓ.
+void create_new_file(const char* filename);                                                     //РЎРѕР·РґР°С‘С‚ РїСѓСЃС‚РѕР№ С„Р°Р№Р» СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРјРµРЅРµРј.
 
 int main()
 {
@@ -49,28 +49,28 @@ int main()
         printf("*");
     }
     printf("\n");
-    printf("* Управления базой данных 'Видеотека' *\n");
+    printf("* РЈРїСЂР°РІР»РµРЅРёСЏ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С… 'Р’РёРґРµРѕС‚РµРєР°' *\n");
     for (int i = 0; i < 39; i++) {
         printf("*");
     }
     printf("\n");
 
     while (1) {
-        printf("\n========== ГЛАВНОЕ МЕНЮ ==========\n");
-        printf("1. Создать файл\n");
-        printf("2. Редактировать файл -->\n");
-        printf("3. Вывод данных из файла\n");
-        printf("4. Сортировка -->\n");
-        printf("5. Поиск\n");
-        printf("6. Выход\n");
+        printf("\n========== Р“Р›РђР’РќРћР• РњР•РќР® ==========\n");
+        printf("1. РЎРѕР·РґР°С‚СЊ С„Р°Р№Р»\n");
+        printf("2. Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С„Р°Р№Р» -->\n");
+        printf("3. Р’С‹РІРѕРґ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°\n");
+        printf("4. РЎРѕСЂС‚РёСЂРѕРІРєР° -->\n");
+        printf("5. РџРѕРёСЃРє\n");
+        printf("6. Р’С‹С…РѕРґ\n");
         printf("==================================\n");
-        printf("Выберите действие: ");
+        printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ");
         scanf("%d", &main_choice);
 
         switch (main_choice) {
         case 1:
-            printf("Создание нового файла...\n");
-            printf("Введите имя нового файла: ");
+            printf("РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ С„Р°Р№Р»Р°...\n");
+            printf("Р’РІРµРґРёС‚Рµ РёРјСЏ РЅРѕРІРѕРіРѕ С„Р°Р№Р»Р°: ");
             char new_filename[50];
             scanf("%s", new_filename);
             create_new_file(new_filename);
@@ -82,180 +82,180 @@ int main()
                 int ch;
                 char saves;
 
-                printf("\n==== РЕДАКТИРОВАНИЕ ФАЙЛА ====\n");
-                printf("1. Заполнить файл автоматически\n");
-                printf("2. Добавить запись вручную\n");
-                printf("3. Изменить запись\n");
-                printf("4. Удалить запись\n");
-                printf("5. Назад <--\n");
+                printf("\n==== Р Р•Р”РђРљРўРР РћР’РђРќРР• Р¤РђР™Р›Рђ ====\n");
+                printf("1. Р—Р°РїРѕР»РЅРёС‚СЊ С„Р°Р№Р» Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё\n");
+                printf("2. Р”РѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ РІСЂСѓС‡РЅСѓСЋ\n");
+                printf("3. РР·РјРµРЅРёС‚СЊ Р·Р°РїРёСЃСЊ\n");
+                printf("4. РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ\n");
+                printf("5. РќР°Р·Р°Рґ <--\n");
                 printf("==============================\n");
-                printf("Выберите действие: ");
+                printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ");
                 if (scanf("%d", &sub_choice) != 1) {
-                    printf("Ошибка ввода. Попробуйте снова.\n");
+                    printf("РћС€РёР±РєР° РІРІРѕРґР°. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
                     while ((ch = getchar()) != '\n' && ch != EOF);
                     continue;
                 }
 
                 if (sub_choice == 5) {
-                    printf("Возврат в главное меню...\n");
+                    printf("Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ...\n");
                     break;
                 }
 
                 switch (sub_choice) {
                 case 1:
-                    printf("Автоматическое заполнение файла...\n");
-                    printf("Укажите количество записей: ");
+                    printf("РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р°...\n");
+                    printf("РЈРєР°Р¶РёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№: ");
                     if (scanf("%d", &auto_size) != 1 || auto_size <= 0 || auto_size > SIZE) {
-                        printf("Некорректное количество записей. Попробуйте снова.\n");
+                        printf("РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
                         while ((ch = getchar()) != '\n' && ch != EOF);
                         continue;
                     }
 
                     fill_array(movies, auto_size);
-                    printf("Массив успешно заполнен!\n");
+                    printf("РњР°СЃСЃРёРІ СѓСЃРїРµС€РЅРѕ Р·Р°РїРѕР»РЅРµРЅ!\n");
 
                     if (save_to_file(movies, auto_size)) {
-                        printf("Данные успешно сохранены в файл.\n");
+                        printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р».\n");
                     }
                     else {
-                        printf("Ошибка при сохранении данных в файл.\n");
+                        printf("РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РґР°РЅРЅС‹С… РІ С„Р°Р№Р».\n");
                     }
                     break;
 
                 case 2:
-                    printf("Добавление записи вручную...\n");
+                    printf("Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РїРёСЃРё РІСЂСѓС‡РЅСѓСЋ...\n");
                     add_movie(movies, &size);
 
-                    printf("Сохранить изменения (y / n): ");
+                    printf("РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ (y / n): ");
                     while ((ch = getchar()) != '\n' && ch != EOF);
                     scanf("%c", &saves);
 
                     if (saves == 'y') {
                         if (save_to_file(movies, size)) {
-                            printf("Данные успешно сохранены в файл.\n");
+                            printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р».\n");
                         }
                         else {
-                            printf("Ошибка при сохранении данных в файл.\n");
+                            printf("РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РґР°РЅРЅС‹С… РІ С„Р°Р№Р».\n");
                         }
                     }
                     break;
 
                 case 3:
-                    printf("Изменение записи...\n");
+                    printf("РР·РјРµРЅРµРЅРёРµ Р·Р°РїРёСЃРё...\n");
                     print_all_movies(movies, size);
-                    printf("Введите индекс записи для изменения (от 0 до %d): ", size - 1);
+                    printf("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ Р·Р°РїРёСЃРё РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ (РѕС‚ 0 РґРѕ %d): ", size - 1);
                     int index;
                     if (scanf("%d", &index) != 1 || index < 0 || index >= size) {
-                        printf("Некорректный индекс. Попробуйте снова.\n");
+                        printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
                         while ((ch = getchar()) != '\n' && ch != EOF);
                         continue;
                     }
                     modify_record(&movies[index]);
-                    printf("Запись успешно изменена.\n");
+                    printf("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅР°.\n");
 
-                    printf("Сохранить изменения (y / n): ");
+                    printf("РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ (y / n): ");
                     while ((ch = getchar()) != '\n' && ch != EOF);
                     scanf("%c", &saves);
 
                     if (saves == 'y') {
                         if (save_to_file(movies, size)) {
-                            printf("Данные успешно сохранены в файл.\n");
+                            printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р».\n");
                         }
                         else {
-                            printf("Ошибка при сохранении данных в файл.\n");
+                            printf("РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РґР°РЅРЅС‹С… РІ С„Р°Р№Р».\n");
                         }
                     }
                     break;
 
                 case 4:
-                    printf("Удаление записи...\n");
+                    printf("РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё...\n");
                     print_all_movies(movies, size);
-                    printf("Введите индекс записи для удаления (от 0 до %d): ", size - 1);
+                    printf("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ Р·Р°РїРёСЃРё РґР»СЏ СѓРґР°Р»РµРЅРёСЏ (РѕС‚ 0 РґРѕ %d): ", size - 1);
                     int delete_index;
                     if (scanf("%d", &delete_index) != 1 || delete_index < 0 || delete_index >= size) {
-                        printf("Некорректный индекс. Попробуйте снова.\n");
+                        printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
                         while ((ch = getchar()) != '\n' && ch != EOF);
                         continue;
                     }
                     delete_record(movies, &size, delete_index);
-                    printf("Запись успешно удалена.\n");
+                    printf("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°.\n");
 
-                    printf("Сохранить изменения (y / n): ");
+                    printf("РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ (y / n): ");
                     while ((ch = getchar()) != '\n' && ch != EOF);
                     scanf("%c", &saves);
 
                     if (saves == 'y') {
                         if (save_to_file(movies, size)) {
-                            printf("Данные успешно сохранены в файл.\n");
+                            printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р».\n");
                         }
                         else {
-                            printf("Ошибка при сохранении данных в файл.\n");
+                            printf("РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РґР°РЅРЅС‹С… РІ С„Р°Р№Р».\n");
                         }
                     }
                     break;
 
                 default:
-                    printf("Ошибка: Неверный выбор. Попробуйте снова.\n");
+                    printf("РћС€РёР±РєР°: РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
                 }
             }
 
             break;
 
         case 3:
-            printf("Вывод данных из файла...\n");
+            printf("Р’С‹РІРѕРґ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°...\n");
             char filename[50];
-            printf("Введите имя файла для загрузки данных: ");
+            printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ Р·Р°РіСЂСѓР·РєРё РґР°РЅРЅС‹С…: ");
             scanf("%s", filename);
             if (load_from_file(filename, movies, &size)) {
-                printf("Данные успешно загружены из файла.\n");
+                printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅС‹ РёР· С„Р°Р№Р»Р°.\n");
                 print_all_movies(movies, size);
             }
             else {
-                printf("Не удалось загрузить данные из файла.\n");
+                printf("РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ РґР°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р°.\n");
             }
             break;
 
         case 4:
             while (1) {
-                printf("\n====== СОРТИРОВКА ЗАПИСЕЙ ======\n");
-                printf("1. По стоимости\n");
-                printf("2. По году выпуска с учетом жанра\n");
-                printf("3. Назад <--\n");
+                printf("\n====== РЎРћР РўРР РћР’РљРђ Р—РђРџРРЎР•Р™ ======\n");
+                printf("1. РџРѕ СЃС‚РѕРёРјРѕСЃС‚Рё\n");
+                printf("2. РџРѕ РіРѕРґСѓ РІС‹РїСѓСЃРєР° СЃ СѓС‡РµС‚РѕРј Р¶Р°РЅСЂР°\n");
+                printf("3. РќР°Р·Р°Рґ <--\n");
                 printf("================================\n");
-                printf("Выберите действие: ");
+                printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ");
                 scanf("%d", &sub_choice);
 
                 if (sub_choice == 1) {
                     qsort(movies, size, sizeof(movie_t), compare_cost);
-                    printf("Фильмы отсортированы по стоимости.\n");
+                    printf("Р¤РёР»СЊРјС‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ СЃС‚РѕРёРјРѕСЃС‚Рё.\n");
                 }
                 else if (sub_choice == 2) {
                     qsort(movies, size, sizeof(movie_t), compare_year_and_genre);
-                    printf("Фильмы отсортированы по году выпуска с учетом жанра.\n");
+                    printf("Р¤РёР»СЊРјС‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ РіРѕРґСѓ РІС‹РїСѓСЃРєР° СЃ СѓС‡РµС‚РѕРј Р¶Р°РЅСЂР°.\n");
                 }
                 else if (sub_choice == 3) {
-                    printf("Возврат в главное меню...\n");
+                    printf("Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ...\n");
                     break;
                 }
                 else {
-                    printf("Неверный выбор.\n");
+                    printf("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ.\n");
                 }
                 print_all_movies(movies, size);
                 break;
             }
             break;
         case 5:
-            printf("Поиск записи...\n");
+            printf("РџРѕРёСЃРє Р·Р°РїРёСЃРё...\n");
             char director[50];
-            printf("Введите имя режиссера для поиска: ");
+            printf("Р’РІРµРґРёС‚Рµ РёРјСЏ СЂРµР¶РёСЃСЃРµСЂР° РґР»СЏ РїРѕРёСЃРєР°: ");
             scanf("%s", director);
 
-            char index[50] = "Индекс";
-            char title[50] = "Название";
-            char genre[50] = "Жанр";
-            char cost[50] = "Стоимость";
-            char directors[50] = "Режиссер";
-            char year[50] = "Год выпуска";
+            char index[50] = "РРЅРґРµРєСЃ";
+            char title[50] = "РќР°Р·РІР°РЅРёРµ";
+            char genre[50] = "Р–Р°РЅСЂ";
+            char cost[50] = "РЎС‚РѕРёРјРѕСЃС‚СЊ";
+            char directors[50] = "Р РµР¶РёСЃСЃРµСЂ";
+            char year[50] = "Р“РѕРґ РІС‹РїСѓСЃРєР°";
 
             printf("\n");
             print_line(TABLE_WIDTH);
@@ -268,7 +268,7 @@ int main()
             movie_t* found_movies = search_by_director(movies, size, director, &found_count);
 
             if (found_count == 0) {
-                printf("Фильмы с режиссером %s не найдены.\n", director);
+                printf("Р¤РёР»СЊРјС‹ СЃ СЂРµР¶РёСЃСЃРµСЂРѕРј %s РЅРµ РЅР°Р№РґРµРЅС‹.\n", director);
             }
             else {
                 for (int i = 0; i < found_count; i++) {
@@ -281,11 +281,11 @@ int main()
             free(found_movies);
             break;
         case 6:
-            printf("Выход из программы. До свидания!\n");
+            printf("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹. Р”Рѕ СЃРІРёРґР°РЅРёСЏ!\n");
             return 0;
 
         default:
-            printf("Ошибка: Неверный выбор! Попробуйте снова.\n");
+            printf("РћС€РёР±РєР°: РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ! РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n");
         }
     }
     return 0;
@@ -302,11 +302,11 @@ void random_string(char* str, const char* arr[], int arr_size) {
     return 1;
 }
 
-// Заполнение массива
+// Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР°
 void fill_array(movie_t* movies, int size) {
-    const char* titles[] = { "Inception", "Titanic", "The_Matrix", "Avatar", "Gladiator" };
-    const char* genres[] = { "Action", "Drama", "Sci-Fi", "Romance", "Adventure" };
-    const char* directors[] = { "Spielberg", "Cameron", "Nolan", "Tarantino", "Scorsese" };
+    const char* titles[] = { "РќР°С‡Р°Р»Рѕ", "РўРёС‚Р°РЅРёРє", "РњР°С‚СЂРёС†Р°", "РђРІР°С‚Р°СЂ", "Р“Р»Р°РґРёР°С‚РѕСЂ" };
+    const char* genres[] = { "Р­РєС€РЅ", "Р”СЂР°РјР°", "Р¤Р°РЅС‚Р°СЃС‚РёРєР°", "Р РѕРјР°РЅ", "РџСЂРёРєР»СЋС‡РµРЅРёРµ" };
+    const char* directors[] = { "РЎРїРёР»Р±РµСЂРі", "РљСЌРјРёСЂРѕРЅ", "РќРѕР»Р°РЅ", "РўР°СЂР°РЅС‚РёРЅРѕ", "РЎРєРѕСЂСЃРµР·Рµ" };
 
     for (int i = 0; i < size; i++) {
         random_string(movies[i].title, titles, sizeof(titles) / sizeof(titles[0]));
@@ -325,21 +325,21 @@ void print_line(int width) {
     printf("\n");
 }
 
-// Функция для вывода одной записи
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РѕРґРЅРѕР№ Р·Р°РїРёСЃРё
 void print_movie(movie_t movie, int index) {
     printf("* %-6d * %-13s * %-13s * %-14.2f$ * %-13s * %-13d *\n",
         index, movie.title, movie.genre, movie.cost, movie.director, movie.year);
 }
 
-// Функция для вывода всех записей
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РІСЃРµС… Р·Р°РїРёСЃРµР№
 void print_all_movies(movie_t* movies, int size) {
 
-    char index[50] = "Индекс";
-    char title[50] = "Название";
-    char genre[50] = "Жанр";
-    char cost[50] = "Стоимость";
-    char director[50] = "Режиссер";
-    char year[50] = "Год выпуска";
+    char index[50] = "РРЅРґРµРєСЃ";
+    char title[50] = "РќР°Р·РІР°РЅРёРµ";
+    char genre[50] = "Р–Р°РЅСЂ";
+    char cost[50] = "РЎС‚РѕРёРјРѕСЃС‚СЊ";
+    char director[50] = "Р РµР¶РёСЃСЃРµСЂ";
+    char year[50] = "Р“РѕРґ РІС‹РїСѓСЃРєР°";
 
     printf("\n");
     print_line(TABLE_WIDTH);
@@ -354,7 +354,7 @@ void print_all_movies(movie_t* movies, int size) {
     print_line(TABLE_WIDTH);
 }
 
-// Функция для поиска фильма по режиссеру
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРёСЃРєР° С„РёР»СЊРјР° РїРѕ СЂРµР¶РёСЃСЃРµСЂСѓ
 movie_t* search_by_director(movie_t* movies, int size, const char* director, int* found_count) {
     movie_t* found_movies = malloc(size * sizeof(movie_t));
     *found_count = 0;
@@ -371,12 +371,12 @@ movie_t* search_by_director(movie_t* movies, int size, const char* director, int
     return found_movies;
 }
 
-// Функция для сортировки фильмов по стоимости
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё С„РёР»СЊРјРѕРІ РїРѕ СЃС‚РѕРёРјРѕСЃС‚Рё
 int compare_cost(const void* a, const void* b) {
     return ((movie_t*)a)->cost > ((movie_t*)b)->cost ? 1 : -1;
 }
 
-// Функция для сортировки по году выпуска с учетом жанра
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ РіРѕРґСѓ РІС‹РїСѓСЃРєР° СЃ СѓС‡РµС‚РѕРј Р¶Р°РЅСЂР°
 int compare_year_and_genre(const void* a, const void* b) {
     movie_t* movieA = (movie_t*)a;
     movie_t* movieB = (movie_t*)b;
@@ -388,16 +388,16 @@ int compare_year_and_genre(const void* a, const void* b) {
     return genre_cmp;
 }
 
-// Функция для записи базы данных в файл
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РїРёСЃРё Р±Р°Р·С‹ РґР°РЅРЅС‹С… РІ С„Р°Р№Р»
 int save_to_file(movie_t* movies, int size)
 {
     char filename[50];
-    printf("Введите имя файла для сохранения данных: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґР°РЅРЅС‹С…: ");
     scanf("%s", filename);
 
     FILE* file = fopen(filename, "w");
     if (!file) {
-        printf("Ошибка при открытии файла для записи.\n");
+        printf("РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р° РґР»СЏ Р·Р°РїРёСЃРё.\n");
         return 0;
     }
     for (int i = 0; i < size; i++) {
@@ -409,32 +409,32 @@ int save_to_file(movie_t* movies, int size)
 }
 
 
-// Функция для добавления записи фильма
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РїРёСЃРё С„РёР»СЊРјР°
 void add_movie(movie_t* movies, int* size)
 {
     if (*size >= SIZE) {
-        printf("Достигнут лимит записей.\n");
+        printf("Р”РѕСЃС‚РёРіРЅСѓС‚ Р»РёРјРёС‚ Р·Р°РїРёСЃРµР№.\n");
         return;
     }
-    printf("Введите название фильма: ");
+    printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„РёР»СЊРјР°: ");
     scanf("%s", movies[*size].title);
-    printf("Введите жанр: ");
+    printf("Р’РІРµРґРёС‚Рµ Р¶Р°РЅСЂ: ");
     scanf("%s", movies[*size].genre);
-    printf("Введите стоимость: ");
+    printf("Р’РІРµРґРёС‚Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ: ");
     scanf("%lf", &movies[*size].cost);
-    printf("Введите режиссера: ");
+    printf("Р’РІРµРґРёС‚Рµ СЂРµР¶РёСЃСЃРµСЂР°: ");
     scanf("%s", movies[*size].director);
-    printf("Введите год выпуска: ");
+    printf("Р’РІРµРґРёС‚Рµ РіРѕРґ РІС‹РїСѓСЃРєР°: ");
     scanf("%d", &movies[*size].year);
     (*size)++;
 }
 
-// Функция для чтения базы данных из файла
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ С‡С‚РµРЅРёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 int load_from_file(char* filename, movie_t* movies, int* size)
 {
     FILE* file = fopen(filename, "r");
     if (!file) {
-        printf("Ошибка при открытии файла для чтения.\n");
+        printf("РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р° РґР»СЏ С‡С‚РµРЅРёСЏ.\n");
         return 0;
     }
 
@@ -454,60 +454,60 @@ int load_from_file(char* filename, movie_t* movies, int* size)
 }
 
 void modify_record(movie_t* movies) {
-    printf("Введите новые данные для фильма:\n");
-    printf("Введите название фильма: ");
+    printf("Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ С„РёР»СЊРјР°:\n");
+    printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„РёР»СЊРјР°: ");
     scanf("%s", movies->title);
-    printf("Введите жанр: ");
+    printf("Р’РІРµРґРёС‚Рµ Р¶Р°РЅСЂ: ");
     scanf("%s", movies->genre);
-    printf("Введите стоимость: ");
+    printf("Р’РІРµРґРёС‚Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ: ");
     scanf("%lf", &movies->cost);
-    printf("Введите режиссера: ");
+    printf("Р’РІРµРґРёС‚Рµ СЂРµР¶РёСЃСЃРµСЂР°: ");
     scanf("%s", movies->director);
-    printf("Введите год выпуска: ");
+    printf("Р’РІРµРґРёС‚Рµ РіРѕРґ РІС‹РїСѓСЃРєР°: ");
     scanf("%d", &movies->year);
 }
 
 void delete_record(movie_t* movies, int* size, int index) {
     if (index < 0 || index >= *size) {
-        printf("Некорректный индекс записи.\n");
+        printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ Р·Р°РїРёСЃРё.\n");
         return 0;
     }
     for (int i = index; i < *size - 1; i++) {
         movies[i] = movies[i + 1];
     }
     (*size)--;
-    printf("Запись успешно удалена.\n");
+    printf("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°.\n");
     return 1;
 }
 
 void create_new_file(const char* filename) {
     FILE* file = fopen(filename, "w");
     if (!file) {
-        printf("Ошибка при создании файла.\n");
+        printf("РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё С„Р°Р№Р»Р°.\n");
         return;
     }
 
     fprintf(file, "");
     fclose(file);
-    printf("Файл '%s' успешно создан.\n", filename);
+    printf("Р¤Р°Р№Р» '%s' СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ.\n", filename);
 }
-//Исправить функцию удалния, 
 
-//1. Создать файл
-//2. Редактировать файл -->
-//    1. Заполнить файл автоматически
-//    2. Добавть запись в ручную
-//    3. Изменть запись
-//    4. Удалить записть
-//    5. Назад <--
-//3. Вывод данных из файла
-//4. Соритирвка -->
-//    1. По стоимости
-//    2. По году выпуска с учетом жанра
-//    3. Назад <--
-//5. Поиск
+
+//1. РЎРѕР·РґР°С‚СЊ С„Р°Р№Р»
+//2. Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С„Р°Р№Р» -->
+//    1. Р—Р°РїРѕР»РЅРёС‚СЊ С„Р°Р№Р» Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё
+//    2. Р”РѕР±Р°РІС‚СЊ Р·Р°РїРёСЃСЊ РІ СЂСѓС‡РЅСѓСЋ
+//    3. РР·РјРµРЅС‚СЊ Р·Р°РїРёСЃСЊ
+//    4. РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃС‚СЊ
+//    5. РќР°Р·Р°Рґ <--
+//3. Р’С‹РІРѕРґ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
+//4. РЎРѕСЂРёС‚РёСЂРІРєР° -->
+//    1. РџРѕ СЃС‚РѕРёРјРѕСЃС‚Рё
+//    2. РџРѕ РіРѕРґСѓ РІС‹РїСѓСЃРєР° СЃ СѓС‡РµС‚РѕРј Р¶Р°РЅСЂР°
+//    3. РќР°Р·Р°Рґ <--
+//5. РџРѕРёСЃРє
   
-//Разработка файловой базы данных "Видеотека"
-//Поля: название фильма, жанр, стоимость, режиссер, год выпуска.
-//Признак поиска: фильм по одному режиссеру, фильм по одному жанру.
-//Вариант сортировки: фильм по возрастанию стоимости, фильм по году выпуска с учетом жанра.
+//Р Р°Р·СЂР°Р±РѕС‚РєР° С„Р°Р№Р»РѕРІРѕР№ Р±Р°Р·С‹ РґР°РЅРЅС‹С… "Р’РёРґРµРѕС‚РµРєР°"
+//РџРѕР»СЏ: РЅР°Р·РІР°РЅРёРµ С„РёР»СЊРјР°, Р¶Р°РЅСЂ, СЃС‚РѕРёРјРѕСЃС‚СЊ, СЂРµР¶РёСЃСЃРµСЂ, РіРѕРґ РІС‹РїСѓСЃРєР°.
+//РџСЂРёР·РЅР°Рє РїРѕРёСЃРєР°: С„РёР»СЊРј РїРѕ РѕРґРЅРѕРјСѓ СЂРµР¶РёСЃСЃРµСЂСѓ, С„РёР»СЊРј РїРѕ РѕРґРЅРѕРјСѓ Р¶Р°РЅСЂСѓ.
+//Р’Р°СЂРёР°РЅС‚ СЃРѕСЂС‚РёСЂРѕРІРєРё: С„РёР»СЊРј РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ СЃС‚РѕРёРјРѕСЃС‚Рё, С„РёР»СЊРј РїРѕ РіРѕРґСѓ РІС‹РїСѓСЃРєР° СЃ СѓС‡РµС‚РѕРј Р¶Р°РЅСЂР°.
