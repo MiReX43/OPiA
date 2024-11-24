@@ -1,0 +1,4 @@
+﻿  Lab17.c
+C:\Users\dengi\source\repos\Lab17\Lab17\Lab17.c(82,54): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\dengi\source\repos\Lab17\Lab17\Lab17.c(185,30): warning C4305: инициализация: усечение из "double" в "float"
+  Lab17.vcxproj -> C:\Users\dengi\source\repos\Lab17\x64\Debug\Lab17.exe
