@@ -115,3 +115,29 @@ List getitem_num(List lst, int n) {
     }
     return NULL;
 }
+
+
+void printlist(List lst) {
+    while (lst != NULL) {
+        printf("%d ", lst->number);
+        lst = lst->next;
+    }
+    printf("\n");
+}
+
+// Функция для вставки числа 10 после каждого отрицательного числа
+void insert_after_negative(List* lst) {
+    List current = *lst;
+    while (current != NULL) {
+        if (current->number < 0) {
+            List newNode = (List)malloc(sizeof(struct listitem));
+            newNode->number = 10;
+            newNode->next = current->next;
+            current->next = newNode;
+            current = newNode->next;  // Переходим к следующему элементу после вставленного
+        }
+        else {
+            current = current->next;
+        }
+    }
+}

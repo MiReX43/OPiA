@@ -1,4 +1,6 @@
 ﻿  Lab23.c
+C:\Users\dengi\source\repos\Lab23\Lab23\Lab23.c(43,5): warning C4013: printlist: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\dengi\source\repos\Lab23\Lab23\Lab23.c(46,5): warning C4013: insert_after_negative: нет определения; предполагается "extern" с возвратом типа "int"
   List.c
   Создание кода...
   Lab23.vcxproj -> C:\Users\dengi\source\repos\Lab23\x64\Debug\Lab23.exe
